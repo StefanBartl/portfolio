@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
 
 const Stefan = {
   url: "https://stefanbartl.at",
@@ -7,7 +7,12 @@ const Stefan = {
 
 const ogImage = "/graphics/logos/rebellischCodenBG1920x1080.png";
 
-export const metadataSB: Metadata = {
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
+
+export const metadata: Metadata = {
   title: "Portfolio | Stefan Bartl",
   description: "Website von Stefan Bartl mit Projekten, Zertifikaten und mehr.",
   applicationName: "Portfolio",
@@ -21,7 +26,6 @@ export const metadataSB: Metadata = {
     "Web Development",
     "Software Development"
   ],
-  viewport: "width=device-width, initial-scale=1.0",
   icons: "/graphics/logos/dev_logo.png",
 
   // Open Graph Meta-Tags

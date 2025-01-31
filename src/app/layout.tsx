@@ -1,18 +1,32 @@
-import { Metadata } from "next";
-import { metadataSB } from "../lib/metadata";
+'use client'
 
-export const metadata: Metadata = metadataSB;
+import Navbar from '@/components/Navbar';
+import { ReactNode } from 'react';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 
-export default function RootLayout({
-  children
-}: {
-  children: React.ReactNode;
-}) {
+// Material Design Theme
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#6200ea',
+    },
+    secondary: {
+      main: '#03dac6',
+    },
+  },
+});
+
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="de">
-      <head>
-      </head>
-      <body>{children}</body>
+      <body>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Navbar />
+          <main>{children}</main>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
