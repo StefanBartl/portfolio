@@ -1,32 +1,17 @@
-'use client'
-
 import React from 'react';
-import Link from 'next/link';
-import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
+import { AppBar, Toolbar, Box } from '@mui/material';
+import NavbarButtons from './NavbarButtons';
+import Image from 'next/image';
+import MyLogo from '../../public/graphics/logos/dev_logo.png';
 
 const Navbar = () => {
   return (
     <AppBar position="static" color="primary">
-      <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          Stefan Bartl
-        </Typography>
-
-        {/* Navigationslinks */}
-        <Box>
-          <Button color="inherit">
-            <Link href="/">Home</Link>
-          </Button>
-          <Button color="inherit">
-            <Link href="/projects">Projekte</Link>
-          </Button>
-          <Button color="inherit">
-            <Link href="/certificates">Zertifikate</Link>
-          </Button>
-          <Button color="inherit">
-            <Link href="/about">Über mich</Link>
-          </Button>
+      <Toolbar sx={{ justifyContent: 'space-between' }}>
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Image src={MyLogo} alt="My development logo" width={40} height={40} />
         </Box>
+        <NavbarButtons />
       </Toolbar>
     </AppBar>
   );

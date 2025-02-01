@@ -1,7 +1,7 @@
 'use client'
 
 import Navbar from '@/components/Navbar';
-import { ReactNode } from 'react';
+import { ReactNode, useEffect } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
@@ -9,15 +9,23 @@ import CssBaseline from '@mui/material/CssBaseline';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#6200ea',
+      main: '#1D1D1D',
     },
     secondary: {
-      main: '#03dac6',
+      main: '#FF6600',
     },
   },
 });
 
 export default function RootLayout({ children }: { children: ReactNode }) {
+
+  useEffect(() => {
+    // Setze CSS-Variablen im :root-Element
+    const root = document.documentElement;
+    root.style.setProperty('--primary-color', theme.palette.primary.main);
+    root.style.setProperty('--secondary-color', theme.palette.secondary.main);
+  }, [theme]);
+
   return (
     <html lang="de">
       <body>
