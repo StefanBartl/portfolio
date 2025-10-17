@@ -1,0 +1,15 @@
+  {
+    "slug": "siemens-xyz",
+    "displayName": "Siemens AG",
+    "logoUrl": "https://example.com/logos/siemens.png",
+    "customIntro": "Ich freue mich, meine Skills bei Siemens einzubringen.",
+    "noIndex": true
+  },
+  {
+    "slug": "acme-2025",
+    "displayName": "ACME GmbH",
+    "logoUrl": null,
+    "customIntro": "Spezielles Intro für ACME GmbH Bewerbung.",
+    "noIndex": true
+  }
+]

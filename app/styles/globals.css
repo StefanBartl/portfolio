@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Optional: eigenes Grid Layout */
+.main-grid {
+  @apply grid grid-cols-12;
+}
