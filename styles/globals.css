@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Optional: eigenes Grid Layout */
+/* Optional: custom grid helper */
 .main-grid {
-  @apply grid grid-cols-12;
+  @apply grid grid-cols-12 gap-6;
 }
