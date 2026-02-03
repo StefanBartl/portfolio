@@ -1,0 +1,188 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const { token, unlock } = Astro.url.searchParams;
+const isAuthorized = token === 'recruiter-2025' || unlock === 'game-victory';
+
+if (!isAuthorized) {
+  return Astro.redirect('/');
+}
+---
+
+<BaseLayout title="Classified Area - Certifications & Projects">
+  <!-- HTMX is loaded via CDN in the layout -->
+  <script src="https://unpkg.com/htmx.org@2.0.3"></script>
+
+  <div class="min-h-screen py-20 px-4">
+    <div class="max-w-6xl mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-12 animate-fade-in">
+        <div class="inline-block px-4 py-2 border border-terminal-accent/50 rounded-lg mb-4">
+          <span class="text-terminal-accent text-sm font-mono">
+            🔐 CLASSIFIED ACCESS GRANTED
+          </span>
+        </div>
+        <h1 class="text-4xl font-bold text-terminal-accent mb-4">
+          Professional Portfolio
+        </h1>
+        <p class="text-terminal-text/70">
+          Exclusive content for recruiters and potential collaborators
+        </p>
+      </div>
+
+      <!-- Certifications Section -->
+      <section class="mb-12">
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <div class="terminal-dot bg-red-500"></div>
+            <div class="terminal-dot bg-yellow-500"></div>
+            <div class="terminal-dot bg-green-500"></div>
+            <span class="ml-2 text-xs text-terminal-text/60">
+              ~/certifications
+            </span>
+          </div>
+
+          <div class="p-6">
+            <h2 class="text-2xl font-bold text-terminal-accent mb-6 flex items-center gap-2">
+              <span>📜</span>
+              Certifications & Achievements
+            </h2>
+
+            <!-- HTMX-loaded content -->
+            <div
+              hx-get="/api/certifications"
+              hx-trigger="load"
+              hx-swap="innerHTML"
+              hx-indicator="#cert-loading"
+            >
+              <div id="cert-loading" class="text-center py-8">
+                <div class="inline-block animate-pulse-glow">
+                  <span class="text-terminal-accent">Loading certifications...</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Case Studies Section -->
+      <section class="mb-12">
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <div class="terminal-dot bg-red-500"></div>
+            <div class="terminal-dot bg-yellow-500"></div>
+            <div class="terminal-dot bg-green-500"></div>
+            <span class="ml-2 text-xs text-terminal-text/60">
+              ~/professional-work
+            </span>
+          </div>
+
+          <div class="p-6">
+            <h2 class="text-2xl font-bold text-terminal-accent mb-6 flex items-center gap-2">
+              <span>💼</span>
+              Professional Projects & Case Studies
+            </h2>
+
+            <div
+              hx-get="/api/case-studies"
+              hx-trigger="load"
+              hx-swap="innerHTML"
+              hx-indicator="#case-loading"
+            >
+              <div id="case-loading" class="text-center py-8">
+                <div class="inline-block animate-pulse-glow">
+                  <span class="text-terminal-accent">Loading case studies...</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Downloads Section -->
+      <section>
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <div class="terminal-dot bg-red-500"></div>
+            <div class="terminal-dot bg-yellow-500"></div>
+            <div class="terminal-dot bg-green-500"></div>
+            <span class="ml-2 text-xs text-terminal-text/60">
+              ~/downloads
+            </span>
+          </div>
+
+          <div class="p-6">
+            <h2 class="text-2xl font-bold text-terminal-accent mb-6 flex items-center gap-2">
+              <span>📥</span>
+              Resources
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-4">
+              <a
+                href="/resume.pdf"
+                download
+                class="card hover:border-terminal-accent/50 transition-colors cursor-pointer"
+              >
+                <div class="flex items-center gap-4">
+                  <div class="text-4xl">📄</div>
+                  <div>
+                    <div class="font-bold text-terminal-accent">Full Resume (PDF)</div>
+                    <div class="text-sm text-terminal-text/60">Detailed CV with all experience</div>
+                  </div>
+                </div>
+              </a>
+
+              <a
+                href="/portfolio.pdf"
+                download
+                class="card hover:border-terminal-accent/50 transition-colors cursor-pointer"
+              >
+                <div class="flex items-center gap-4">
+                  <div class="text-4xl">📊</div>
+                  <div>
+                    <div class="font-bold text-terminal-accent">Portfolio Deck</div>
+                    <div class="text-sm text-terminal-text/60">Visual presentation of work</div>
+                  </div>
+                </div>
+              </a>
+
+              <button
+                hx-post="/api/schedule-call"
+                hx-swap="none"
+                hx-on::after-request="alert('Thank you! I will contact you within 24 hours.')"
+                class="card hover:border-terminal-accent/50 transition-colors cursor-pointer text-left"
+              >
+                <div class="flex items-center gap-4">
+                  <div class="text-4xl">📞</div>
+                  <div>
+                    <div class="font-bold text-terminal-accent">Schedule a Call</div>
+                    <div class="text-sm text-terminal-text/60">Let's discuss opportunities</div>
+                  </div>
+                </div>
+              </button>
+
+              <a
+                href="mailto:your@email.com"
+                class="card hover:border-terminal-accent/50 transition-colors cursor-pointer"
+              >
+                <div class="flex items-center gap-4">
+                  <div class="text-4xl">✉️</div>
+                  <div>
+                    <div class="font-bold text-terminal-accent">Direct Email</div>
+                    <div class="text-sm text-terminal-text/60">your@email.com</div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer Note -->
+      <div class="mt-12 text-center text-sm text-terminal-text/40">
+        <p>This page is accessible only via direct link.</p>
+        <p>Please do not share this URL without permission.</p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

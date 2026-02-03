@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <style>
+      .terminal-green { fill: #00ff00; }
+      .terminal-bg { fill: #0a0e27; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="terminal-bg" width="100" height="100" rx="10"/>
+
+  <!-- Terminal prompt -->
+  <text x="15" y="40" font-family="monospace" font-size="24" class="terminal-green">$</text>
+
+  <!-- Cursor -->
+  <rect x="30" y="20" width="15" height="25" class="terminal-green" opacity="0.8"/>
+
+  <!-- Code brackets -->
+  <text x="15" y="70" font-family="monospace" font-size="20" class="terminal-green">&lt;/&gt;</text>
+</svg>
