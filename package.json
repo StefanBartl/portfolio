@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "Modern developer portfolio with terminal theme and fighting game",
-  "author": "Your Name <your@email.com>",
+  "author": "Stefan Bartl <stefan.bartl.work@gmail.com>",
   "license": "MIT",
   "packageManager": "pnpm@9.0.0",
   "engines": {
