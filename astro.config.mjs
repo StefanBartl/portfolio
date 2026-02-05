@@ -17,7 +17,6 @@ export default defineConfig({
       enabled: true
     }
   }),
-
   // Integrationen
   integrations: [
     react(),
@@ -26,7 +25,6 @@ export default defineConfig({
       applyBaseStyles: false, // wir nutzen eigene global.css
     })
   ],
-
   // Vite-spezifische Konfiguration
   vite: {
     optimizeDeps: {
@@ -44,13 +42,11 @@ export default defineConfig({
       }
     }
   },
-
   // Server-Konfiguration für Development
   server: {
     port: 4321,
     host: true
   },
-
   // Image optimization
   image: {
     domains: ['your-domain.com'],
@@ -59,7 +55,6 @@ export default defineConfig({
       hostname: '**.githubusercontent.com'
     }]
   },
-
   // Markdown configuration
   markdown: {
     shikiConfig: {

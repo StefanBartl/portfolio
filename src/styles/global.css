@@ -61,9 +61,7 @@
   }
 
   .btn-primary {
-    @apply px-4 py-2 bg-terminal-accent/20 border border-terminal-accent/50
-           rounded hover:bg-terminal-accent/30 transition-colors
-           text-terminal-accent font-mono text-sm;
+    @apply px-4 py-2 bg-terminal-accent/20 border border-terminal-accent/50 rounded hover:bg-terminal-accent/30 transition-colors text-terminal-accent font-mono text-sm;
   }
 
   .card {
@@ -89,9 +87,12 @@
   }
 
   @keyframes scan {
-    0%, 100% {
+
+    0%,
+    100% {
       transform: translateY(-100%);
     }
+
     50% {
       transform: translateY(100%);
     }
@@ -105,9 +106,12 @@
 }
 
 @keyframes blink {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0;
   }
@@ -146,18 +150,23 @@
   0% {
     clip: rect(10px, 9999px, 31px, 0);
   }
+
   20% {
     clip: rect(70px, 9999px, 71px, 0);
   }
+
   40% {
     clip: rect(10px, 9999px, 140px, 0);
   }
+
   60% {
     clip: rect(80px, 9999px, 20px, 0);
   }
+
   80% {
     clip: rect(50px, 9999px, 100px, 0);
   }
+
   100% {
     clip: rect(30px, 9999px, 130px, 0);
   }
